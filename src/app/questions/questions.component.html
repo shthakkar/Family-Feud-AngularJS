@@ -1,0 +1,47 @@
+<!--
+<h2>{{ question.que | uppercase }} </h2>
+<div><span>id: </span>{{question.id}}</div>
+<div><span>answers: </span>{{question.ans}}</div>
+
+<div>
+    <label>name:
+      <input [(ngModel)]="question.que" placeholder="name">
+    </label>
+</div>
+-->
+  
+<h2>{{team1}} score: {{team1Score}}</h2>
+<h2>{{team2}} score: {{team2Score}}</h2>
+
+<ul class="questions">
+  <li *ngFor="let que of questions">
+    <div *ngIf="que.id===curr;else other_content">
+    <span class="sawaal">{{que.id}}. {{que.que}} </span> 
+   <ul class={{que.ans}} id='cool'>
+    <li *ngFor="let myAns of que.ans"  (click)= "onSelect(myAns)">
+      
+    
+
+      <span class="points" [class.selected]="myAns[2] === true">{{myAns[0]}}--{{myAns[1]}}</span>
+
+    </li>
+   </ul>
+</div>
+  </li>
+</ul>
+
+
+<input type="button"  (click)="decrement()" value="prev" />
+    
+<input type="button"  (click)="increment()" value="next" />
+
+<input type="button"  (click)="strikeClick()" value="strike" />
+
+<input type="button"  (click)="team1Won()" value="{{team1}} WON" />
+<input type="button"  (click)="team2Won()" value="{{team2}} WON" />
+
+     
+   
+<h3> Strike: {{ strike }}</h3>
+<h3> Round Score: {{ sum }}</h3>
+
